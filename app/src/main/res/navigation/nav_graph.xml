@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_main">
+
+    <fragment
+        android:id="@+id/fragment_main"
+        android:name="com.app.amigosecreto.fragment_main"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_fragment_main_to_fragment_sorteio_main"
+            app:destination="@id/fragment_sorteio_main" />
+        <action
+            android:id="@+id/action_fragment_main_to_fragment_revela_main"
+            app:destination="@id/fragment_revela_main" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_sorteio_main"
+        android:name="com.app.amigosecreto.fragment_sorteio_main"
+        android:label="fragment_sorteio_main"
+        tools:layout="@layout/fragment_sorteio_main" >
+        <action
+            android:id="@+id/action_fragment_sorteio_main_to_frament_participantes"
+            app:destination="@id/frament_participantes" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_revela_main"
+        android:name="com.app.amigosecreto.fragment_revela_main"
+        android:label="fragment_revela_main"
+        tools:layout="@layout/fragment_revela_main" />
+    <fragment
+        android:id="@+id/frament_participantes"
+        android:name="com.app.amigosecreto.frament_participantes"
+        android:label="fragment_frament_participantes"
+        tools:layout="@layout/fragment_frament_participantes" />
+</navigation>

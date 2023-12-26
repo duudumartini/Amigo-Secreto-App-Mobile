@@ -1,0 +1,15 @@
+<!-- res/drawable/button_rounded_shadow.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#854E4E4E" />
+            <corners android:radius="25dp" />
+        </shape>
+    </item>
+    <item android:right="0dp" android:left="0dp" android:bottom="7dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="20dp" /> <!-- Define o raio das bordas -->
+            <solid android:color="@color/gray" /> <!-- Cor de fundo do botão -->
+        </shape>
+    </item>
+</layer-list>

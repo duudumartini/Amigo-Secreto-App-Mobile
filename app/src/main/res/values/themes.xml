@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AmigoSecreto" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="android:navigationBarColor">@color/blue</item>
+    </style>
+
+    <style name="Theme.AmigoSecreto" parent="Base.Theme.AmigoSecreto" />
+</resources>
