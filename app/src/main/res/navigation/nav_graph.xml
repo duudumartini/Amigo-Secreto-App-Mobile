@@ -43,5 +43,14 @@
         android:id="@+id/frament_participantes_online"
         android:name="com.app.amigosecreto.frament_participantes_online"
         android:label="fragment_frament_participantes"
-        tools:layout="@layout/fragment_frament_participantes_online" />
+        tools:layout="@layout/fragment_frament_participantes_online" >
+        <action
+            android:id="@+id/from_fragment_participantes_online_to_fragment_resultado_online"
+            app:destination="@id/fragment_resultado_online" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_resultado_online"
+        android:name="com.app.amigosecreto.fragment_resultado_online"
+        android:label="fragment_resultado_online"
+        tools:layout="@layout/fragment_resultado_online" />
 </navigation>

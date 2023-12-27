@@ -33,5 +33,4 @@
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/ic_excluir" />
 
-
 </LinearLayout>

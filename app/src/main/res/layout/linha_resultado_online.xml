@@ -1,0 +1,45 @@
+<!-- linha_participante.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linha_participante"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:padding="15dp"
+        android:id="@+id/txt_participante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:background="@drawable/bk3_round"
+        android:inputType="text"
+        android:fontFamily="@font/lobster_regular"
+        android:textColor="@color/cor6"
+        android:textSize="25sp"
+        android:text="Eduardo Martini"/>
+
+    <ImageButton
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:id="@+id/btn_copiar_codigo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_copiar" />
+
+    <ImageButton
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:id="@+id/btn_compartilhar_codigo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_compartilhar" />
+
+</LinearLayout>
