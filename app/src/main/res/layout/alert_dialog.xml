@@ -1,0 +1,31 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bk5_round"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:fontFamily="@font/lobster_regular"
+        android:textAlignment="center"
+        android:text="Mensagem do Alert Dialog"/>
+
+    <!-- Adicione outros elementos conforme necessário -->
+
+    <Button
+        android:id="@+id/buttonOK"
+        android:layout_margin="20dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:fontFamily="@font/lobster_regular"
+        android:backgroundTint="@color/cor3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OK"/>
+</LinearLayout>

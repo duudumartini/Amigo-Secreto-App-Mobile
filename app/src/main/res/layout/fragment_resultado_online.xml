@@ -30,7 +30,7 @@
             android:contentDescription="Lista de resultado"> <!-- Add content description for accessibility -->
             <LinearLayout
                 android:id="@+id/container_resultado_online"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

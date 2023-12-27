@@ -29,7 +29,7 @@
         tools:layout="@layout/fragment_sorteio_main" >
         <action
             android:id="@+id/fragment_sorteio_main_to_fragment_participantes_online"
-            app:destination="@id/frament_participantes_online"
+            app:destination="@id/fragment_participantes_online"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
@@ -40,7 +40,7 @@
         android:label="fragment_revela_main"
         tools:layout="@layout/fragment_revela_main" />
     <fragment
-        android:id="@+id/frament_participantes_online"
+        android:id="@+id/fragment_participantes_online"
         android:name="com.app.amigosecreto.frament_participantes_online"
         android:label="fragment_frament_participantes"
         tools:layout="@layout/fragment_frament_participantes_online" >
@@ -52,5 +52,10 @@
         android:id="@+id/fragment_resultado_online"
         android:name="com.app.amigosecreto.fragment_resultado_online"
         android:label="fragment_resultado_online"
-        tools:layout="@layout/fragment_resultado_online" />
+        tools:layout="@layout/fragment_resultado_online" >
+        <action
+            android:id="@+id/action_fragment_resultado_online_to_fragment_main"
+            app:destination="@id/fragment_main" />
+    </fragment>
+
 </navigation>
