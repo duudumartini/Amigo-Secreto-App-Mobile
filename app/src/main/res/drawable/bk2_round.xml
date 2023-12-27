@@ -1,0 +1,17 @@
+<!-- res/drawable/button_rounded_shadow.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Adicione a sombra -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="20dp" />
+            <solid android:color="#40200E07" />
+        </shape>
+    </item>
+    <!-- Adicione a sombra -->
+    <item android:right="1dp" android:left="1dp" android:top="2dp" android:bottom="8dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="20dp" />
+            <solid android:color="@color/cor7" /> <!-- Cor e intensidade da sombra -->
+        </shape>
+    </item>
+</layer-list>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment_main"
-    android:background="@color/blue">
+    android:background="@color/cor1">
 
     <TableLayout
         android:id="@+id/main_table"
@@ -33,11 +33,18 @@
             android:layout_weight="1"
             android:gravity="center">
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/btn_realizar_sorteio"
                 android:layout_width="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:textAlignment="center"
+                android:padding="15dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/red"
+                android:background = "@drawable/bk3_round"
+                android:textColor="@color/cor6"
+                android:textSize="60sp"
+                android:fontFamily="@font/lobster_regular"
                 android:text="@string/btn_criar_sorteio" />
 
         </TableRow>
@@ -62,22 +69,27 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="18sp"
+                    android:textSize="22sp"
                     android:ems="10"
                     android:inputType="text"
                     android:text="@string/txt_codigo"
-                    android:background="@drawable/txt_round_gray"
-                    android:textColor="@color/white"
+                    android:background="@drawable/bk1_roundws"
+                    android:textColor="@color/cor6"
                     android:padding="20dp"/>
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/btn_resgatarcodigo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="70dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/red"
-                    android:text="@string/btn_codigo" />
+                    android:background="@drawable/bk2_round"
+                    android:fontFamily="@font/lobster_regular"
+                    android:text="@string/btn_codigo"
+                    android:textColor="@color/cor6"
+                    android:textSize="30sp" />
 
             </LinearLayout>
 

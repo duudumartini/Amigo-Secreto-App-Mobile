@@ -1,14 +1,12 @@
 <resources>
     <string name="app_name">Amigo Secreto</string>
-    <string name="btn_criar_sorteio">Realizar Novo Sorteio</string>
+    <string name="btn_criar_sorteio">Novo Sorteio</string>
     <string name="txt_codigo">Insira aqui seu código</string>
     <string name="btn_codigo">Revelar Amigo Secreto</string>
     <string name="btn_sorteio_prencial">Sorteio Presencial</string>
     <string name="btn_sorteio_online">Sorteio Online</string>
-    <string name="txt_metodo_sorteio">Escolha o metodo de sorteio</string>
     <string name="txt_nome_participante">Nome do participante</string>
-    <string name="txt_adicionar_participantes">Adicione os participantes</string>
-    <string name="btn_adicione_participante">Novo participante</string>
+    <string name="btn_adicione_participante">↓ Novo participante ↓</string>
     <string name="btn_realizar_sorteio">Realizar sorteio</string>
 
 </resources>

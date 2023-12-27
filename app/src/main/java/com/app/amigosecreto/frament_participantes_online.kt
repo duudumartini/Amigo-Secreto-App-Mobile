@@ -1,6 +1,7 @@
 package com.app.amigosecreto
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -12,11 +13,14 @@ class frament_participantes_online : Fragment(R.layout.fragment_frament_particip
 
     private lateinit var containerParticipantes : LinearLayout
     private lateinit var btn_adicionarParticipante: Button
+    private lateinit var btn_realizarSorteio: Button
+    private var participantesList = mutableListOf<participante>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         containerParticipantes = view.findViewById(R.id.container_participantes)
         btn_adicionarParticipante = view.findViewById(R.id.btn_adicionar_participante)
+        btn_realizarSorteio = view.findViewById(R.id.btn_realizar_sorteio)
 
         repeat(4) {
             adicionarParticipante()
@@ -29,6 +33,10 @@ class frament_participantes_online : Fragment(R.layout.fragment_frament_particip
     private fun setListener() {
         btn_adicionarParticipante.setOnClickListener {
             adicionarParticipante()
+        }
+        btn_realizarSorteio.setOnClickListener {
+            participantesList.clear()
+            participantesList.addAll(criarListaDeParticipantes())
         }
 
     }
@@ -45,16 +53,15 @@ class frament_participantes_online : Fragment(R.layout.fragment_frament_particip
             else{
                 Toast.makeText(requireContext(), "Não é possível excluir todos os participantes!", Toast.LENGTH_SHORT).show()
             }
-
         }
 
         val txtParticipante: EditText = linhaParticipanteView.findViewById(R.id.txt_participante)
         txtParticipante.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus && txtParticipante.text.toString() == "Nome do participante" ) {
+            if (hasFocus && txtParticipante.text.toString() == getString(R.string.txt_nome_participante) ) {
                 txtParticipante.setText("")
             }
             if (!hasFocus && txtParticipante.text.isBlank()) {
-                txtParticipante.setText("Nome do participante")  // Definir o texto padrão ao perder o foco se estiver vazio
+                txtParticipante.setText(getString(R.string.txt_nome_participante))  // Definir o texto padrão ao perder o foco se estiver vazio
             }
         }
         containerParticipantes.addView(linhaParticipanteView)
@@ -64,4 +71,26 @@ class frament_participantes_online : Fragment(R.layout.fragment_frament_particip
         val parentView = view.parent as View
         containerParticipantes.removeView(parentView)
     }
+
+    private fun criarListaDeParticipantes(): List<participante> {
+        val listaParticipantes = mutableListOf<participante>()
+
+        for (i in 0 until containerParticipantes.childCount) {
+            val linhaParticipanteView = containerParticipantes.getChildAt(i)
+
+            if (linhaParticipanteView is LinearLayout) {
+                val txtParticipante = linhaParticipanteView.findViewById<EditText>(R.id.txt_participante)
+                val nomeParticipante = txtParticipante.text.toString()
+
+                // Criar uma instância de Participante e adicionar à lista
+                if (nomeParticipante != getString(R.string.txt_nome_participante)) {
+                    val participante = participante()
+                    participante.nomeParticipante = nomeParticipante
+                    listaParticipantes.add(participante)
+                }
+            }
+        }
+        return listaParticipantes
+    }
+
 }

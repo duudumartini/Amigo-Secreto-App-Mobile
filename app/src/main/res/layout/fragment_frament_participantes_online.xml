@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".frament_participantes_online"
-    android:background="@color/blue">
+    android:background="@color/cor1">
 
     <LinearLayout
         android:id="@+id/container_geral"
@@ -14,44 +14,55 @@
         android:orientation="vertical">
 
         <TextView
-            android:gravity="center"
-            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="@string/btn_sorteio_online"/>
-
-        <TextView
-            android:id="@+id/textView3"
             android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="@string/txt_adicionar_participantes" />
+            android:text="@string/btn_sorteio_online"
+            android:textColor="@color/cor6"
+            android:textSize="40sp"
+            android:padding="30dp"
+            android:layout_margin="30dp"
+            android:fontFamily="@font/lobster_regular"
+            android:background="@drawable/bk2_round"/>
 
-        <Button
+        <android.widget.Button
             android:id="@+id/btn_adicionar_participante"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bk4_round"
+            android:textColor="@color/cor6"
+            android:fontFamily="@font/lobster_regular"
+            android:textSize="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginBottom="10dp"
             android:text="@string/btn_adicione_participante" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:contentDescription="List de participantes"> <!-- Add content description for accessibility -->
             <LinearLayout
                 android:id="@+id/container_participantes"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <!-- Conteúdo do ScrollView -->
+                android:orientation="vertical"
+                android:contentDescription="Bloco de participantes"> <!-- Add content description for accessibility -->
+
+                <!-- Lista de participantes aparece aqui, ao clicar no botão, instanciando linha_participante.xml -->
             </LinearLayout>
         </ScrollView>
 
-        <Button
+
+        <android.widget.Button
             android:id="@+id/btn_realizar_sorteio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bk5_round"
+            android:fontFamily="@font/lobster_regular"
+            android:textSize="30dp"
             android:text="@string/btn_realizar_sorteio" />
     </LinearLayout>
 

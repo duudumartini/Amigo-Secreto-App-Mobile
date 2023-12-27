@@ -4,28 +4,30 @@
     android:id="@+id/linha_participante"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@drawable/bk3_round">
 
     <EditText
-        android:layout_margin="5dp"
-        android:padding="15dp"
-        android:background="@drawable/txt_round_gray"
+        android:layout_margin="10dp"
+        android:padding="5dp"
         android:id="@+id/txt_participante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
+
         android:inputType="text"
-        android:textColor="@color/white"
+        android:textColor="@color/cor6"
         android:textSize="20sp"
-        android:text="@string/txt_nome_participante" />
+        android:text="@string/txt_nome_participante"
+        android:background="#004F5064"/>
 
     <ImageButton
         android:layout_margin="5dp"
         android:layout_gravity="center_horizontal|center_vertical"
         android:id="@+id/btn_excluir_linha"
-        android:layout_width="10dp"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
         android:layout_weight="1"
         android:background="?attr/selectableItemBackground"
         android:scaleType="fitCenter"

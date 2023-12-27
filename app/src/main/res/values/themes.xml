@@ -1,9 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.AmigoSecreto" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/blue</item>
-        <item name="android:navigationBarColor">@color/blue</item>
+    <style name="Base.Theme.AmigoSecreto" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/cor1</item>
+        <!-- Cor de fundo da barra de navegação -->
+        <item name="android:navigationBarColor">@color/cor1</item>
+        <!-- Cor de fundo da barra de status -->
+        <item name="android:statusBarColor">@color/cor1</item>
+        <!-- Cor do texto, ícones, etc., na barra de status -->
     </style>
-
-    <style name="Theme.AmigoSecreto" parent="Base.Theme.AmigoSecreto" />
 </resources>
