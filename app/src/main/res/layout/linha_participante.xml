@@ -1,0 +1,35 @@
+<!-- linha_participante.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linha_participante"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <EditText
+        android:layout_margin="5dp"
+        android:padding="15dp"
+        android:background="@drawable/txt_round_gray"
+        android:id="@+id/txt_participante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="@string/txt_nome_participante" />
+
+    <ImageButton
+        android:layout_margin="5dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:id="@+id/btn_excluir_linha"
+        android:layout_width="10dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_excluir" />
+
+
+</LinearLayout>

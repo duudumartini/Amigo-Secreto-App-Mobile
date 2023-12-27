@@ -6,6 +6,9 @@
     <string name="btn_sorteio_prencial">Sorteio Presencial</string>
     <string name="btn_sorteio_online">Sorteio Online</string>
     <string name="txt_metodo_sorteio">Escolha o metodo de sorteio</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_nome_participante">Nome do participante</string>
+    <string name="txt_adicionar_participantes">Adicione os participantes</string>
+    <string name="btn_adicione_participante">Novo participante</string>
+    <string name="btn_realizar_sorteio">Realizar sorteio</string>
+
 </resources>

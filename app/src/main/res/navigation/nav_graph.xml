@@ -11,29 +11,37 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_fragment_main_to_fragment_sorteio_main"
-            app:destination="@id/fragment_sorteio_main" />
+            android:id="@+id/fragment_main_to_fragment_sorteio_main"
+            app:destination="@id/fragment_sorteio_main"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_fragment_main_to_fragment_revela_main"
-            app:destination="@id/fragment_revela_main" />
+            app:destination="@id/fragment_revela_main"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
+
     <fragment
         android:id="@+id/fragment_sorteio_main"
         android:name="com.app.amigosecreto.fragment_sorteio_main"
         android:label="fragment_sorteio_main"
         tools:layout="@layout/fragment_sorteio_main" >
         <action
-            android:id="@+id/action_fragment_sorteio_main_to_frament_participantes"
-            app:destination="@id/frament_participantes" />
+            android:id="@+id/fragment_sorteio_main_to_fragment_participantes_online"
+            app:destination="@id/frament_participantes_online"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
+
     <fragment
         android:id="@+id/fragment_revela_main"
         android:name="com.app.amigosecreto.fragment_revela_main"
         android:label="fragment_revela_main"
         tools:layout="@layout/fragment_revela_main" />
     <fragment
-        android:id="@+id/frament_participantes"
-        android:name="com.app.amigosecreto.frament_participantes"
+        android:id="@+id/frament_participantes_online"
+        android:name="com.app.amigosecreto.frament_participantes_online"
         android:label="fragment_frament_participantes"
-        tools:layout="@layout/fragment_frament_participantes" />
+        tools:layout="@layout/fragment_frament_participantes_online" />
 </navigation>
