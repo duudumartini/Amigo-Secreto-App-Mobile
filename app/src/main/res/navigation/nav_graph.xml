@@ -40,8 +40,10 @@
         android:label="fragment_revela_main"
         tools:layout="@layout/fragment_revela_main" >
         <action
-            android:id="@+id/action_fragment_revela_main_to_fragment_main"
-            app:destination="@id/fragment_main" />
+            android:id="@+id/from_fragment_revela_main_to_fragment_main"
+            app:destination="@id/fragment_main"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
         <argument
             android:name="codigoAmigoSecreto"
             app:argType="string" />

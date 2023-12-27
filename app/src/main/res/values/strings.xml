@@ -11,6 +11,8 @@
     <string name="txt_compartilhe_resultado">Compartilhe o Resultado</string>
     <string name="txt_confirma_nome">Seu nome é ?</string>
     <string name="txt_codigo_valido">Por favor, insira um código válido.</string>
+    <string name="txt_memorizei">Memorizei !</string>
+    <string name="txt_seu_amigo_secreto_e">Seu amigo secreto é:</string>
 
 
 </resources>

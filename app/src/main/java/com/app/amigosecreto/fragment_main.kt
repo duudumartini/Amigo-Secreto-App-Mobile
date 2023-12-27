@@ -36,10 +36,9 @@ class fragment_main : Fragment(R.layout.fragment_main) {
         btn_revelar.setOnClickListener {
             try {
                 codigo = sharedViewModel.descriptografar(txt_codigo.text.toString())
-
                 if(sharedViewModel.isTextoCriptografado(codigo) == true) {
-                    //val action = fragment_mainDirections.fromFragmentMainToFragmentRevelaMain(sharedViewModel.descriptografar(codigo))
-                    //findNavController().navigate(action)
+                    val action = fragment_mainDirections.fromFragmentMainToFragmentRevelaMain(codigo)
+                    findNavController().navigate(action)
                 } else {
                     sharedViewModel.exibirAlertDialog(requireContext(), getString(R.string.txt_codigo_valido))
                 }
