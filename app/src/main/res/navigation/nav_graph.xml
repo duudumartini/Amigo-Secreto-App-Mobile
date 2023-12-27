@@ -16,7 +16,7 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
         <action
-            android:id="@+id/action_fragment_main_to_fragment_revela_main"
+            android:id="@+id/from_fragment_main_to_fragment_revela_main"
             app:destination="@id/fragment_revela_main"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
@@ -38,7 +38,14 @@
         android:id="@+id/fragment_revela_main"
         android:name="com.app.amigosecreto.fragment_revela_main"
         android:label="fragment_revela_main"
-        tools:layout="@layout/fragment_revela_main" />
+        tools:layout="@layout/fragment_revela_main" >
+        <action
+            android:id="@+id/action_fragment_revela_main_to_fragment_main"
+            app:destination="@id/fragment_main" />
+        <argument
+            android:name="codigoAmigoSecreto"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_participantes_online"
         android:name="com.app.amigosecreto.frament_participantes_online"

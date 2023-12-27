@@ -53,7 +53,7 @@ class fragment_resultado_online : Fragment(R.layout.fragment_resultado_online) {
 
             btnCopiarCodigo.setOnClickListener{
                 val stringAmigoSecreto = "${participante.nomeParticipante}/${participante.amigoSecreto}"
-                val codigoAmigoSecreto = sharedViewModel.criptografar(stringAmigoSecreto, sharedViewModel.gerarChave())
+                val codigoAmigoSecreto = sharedViewModel.criptografar(stringAmigoSecreto)
                 val clipboardManager = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 val clipData = ClipData.newPlainText("Código do Amigo Secreto", codigoAmigoSecreto)
                 clipboardManager.setPrimaryClip(clipData)
@@ -62,7 +62,7 @@ class fragment_resultado_online : Fragment(R.layout.fragment_resultado_online) {
             }
             btnCompartilharCodigo.setOnClickListener {
                 val stringAmigoSecreto = "${participante.nomeParticipante}/${participante.amigoSecreto}"
-                val codigoAmigoSecreto = sharedViewModel.criptografar(stringAmigoSecreto, sharedViewModel.gerarChave())
+                val codigoAmigoSecreto = sharedViewModel.criptografar(stringAmigoSecreto)
 
                 // Criar um Intent para compartilhamento
                 val intent = Intent(Intent.ACTION_SEND)

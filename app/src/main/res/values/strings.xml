@@ -9,6 +9,8 @@
     <string name="btn_adicione_participante">↓ Novo participante ↓</string>
     <string name="btn_realizar_sorteio">Realizar sorteio</string>
     <string name="txt_compartilhe_resultado">Compartilhe o Resultado</string>
+    <string name="txt_confirma_nome">Seu nome é ?</string>
+    <string name="txt_codigo_valido">Por favor, insira um código válido.</string>
 
 
 </resources>

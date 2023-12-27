@@ -3,4 +3,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_revela_main"/>
+    tools:context=".fragment_revela_main"
+    android:background="@color/cor1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/txt_confirma_nome" />
+
+        <TextView
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:id="@+id/txt_nome_revela"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_margin="40dp"
+                android:id="@+id/btn_nao_revela"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="NÃO"
+                android:fontFamily="@font/lobster_regular"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:backgroundTint="@color/cor2"/>
+
+            <Button
+                android:layout_margin="40dp"
+                android:id="@+id/btn_sim_revela"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="25sp"
+                android:fontFamily="@font/lobster_regular"
+                android:backgroundTint="@color/cor3"
+                android:text="SIM" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
