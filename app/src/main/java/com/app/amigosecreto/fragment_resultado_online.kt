@@ -79,8 +79,6 @@ class fragment_resultado_online : Fragment(R.layout.fragment_resultado_online) {
                 // Iniciar a atividade de compartilhamento
                 startActivity(Intent.createChooser(intent, "Compartilhar código do Amigo Secreto"))
             }
-
-
             containerParticipantes.addView(linhaParticipanteView)
         }
 

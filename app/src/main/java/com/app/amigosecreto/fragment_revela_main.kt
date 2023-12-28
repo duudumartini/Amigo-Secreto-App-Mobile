@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 class fragment_revela_main : Fragment(R.layout.fragment_revela_main) {
 
     private var codigo: String? = null
+    private var tipoSorteio: String? = null
     private var participante: String? = null
     private var amigoSecreto: String? = null
     private lateinit var txt_nome_participante: TextView
@@ -31,7 +32,8 @@ class fragment_revela_main : Fragment(R.layout.fragment_revela_main) {
         codigo = args.codigoAmigoSecreto
         codigo = removerPrefixoEncriptado(codigo.toString())
         separaStrings(codigo.toString())
-        Log.e("MeuErro", codigo.toString())
+        tipoSorteio = args.tipoSorteio
+
         setListener()
     }
 
@@ -40,7 +42,11 @@ class fragment_revela_main : Fragment(R.layout.fragment_revela_main) {
             exibirAmigoSecreto(amigoSecreto.toString())
         }
         btn_nao.setOnClickListener {
-           findNavController().navigate(R.id.from_fragment_revela_main_to_fragment_main)
+            if(tipoSorteio == ""){
+                findNavController().navigate(R.id.from_fragment_revela_main_to_fragment_main)
+            }else{
+                findNavController().navigateUp()
+            }
         }
     }
 
@@ -73,8 +79,14 @@ class fragment_revela_main : Fragment(R.layout.fragment_revela_main) {
         alertDialog.show()
         val btnMemorizei = view.findViewById<Button>(R.id.btn_memorizei_revela)
         btnMemorizei.setOnClickListener {
-            findNavController().navigate(R.id.from_fragment_revela_main_to_fragment_main)
-            alertDialog.dismiss()
+            if(tipoSorteio == ""){
+                findNavController().navigate(R.id.from_fragment_revela_main_to_fragment_main)
+                alertDialog.dismiss()
+            }else{
+                findNavController().navigateUp()
+                alertDialog.dismiss()
+            }
+
         }
     }
 }

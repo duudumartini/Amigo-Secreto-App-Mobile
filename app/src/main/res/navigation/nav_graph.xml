@@ -29,17 +29,14 @@
 
     <fragment
         android:id="@+id/fragment_sorteio_main"
-        android:name="com.app.amigosecreto.fragment_sorteio_main"
+        android:name="com.app.amigosecreto.fragment_tipo_sorteio"
         android:label="fragment_sorteio_main"
-        tools:layout="@layout/fragment_sorteio_main" >
+        tools:layout="@layout/fragment_tipo_sorteio" >
         <action
-            android:id="@+id/fragment_sorteio_main_to_fragment_participantes_online"
+            android:id="@+id/from_fragment_sorteio_main_to_fragment_participantes"
             app:destination="@id/fragment_participantes_online"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
-        <action
-            android:id="@+id/action_fragment_sorteio_main_to_fragment_participantes_presencial"
-            app:destination="@id/fragment_participantes_presencial" />
     </fragment>
 
     <fragment
@@ -55,15 +52,24 @@
         <argument
             android:name="codigoAmigoSecreto"
             app:argType="string" />
+        <argument
+            android:name="tipo_sorteio"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/fragment_participantes_online"
-        android:name="com.app.amigosecreto.frament_participantes_online"
+        android:name="com.app.amigosecreto.fragment_participantes"
         android:label="fragment_frament_participantes"
-        tools:layout="@layout/fragment_frament_participantes_online" >
+        tools:layout="@layout/fragment_participantes" >
         <action
             android:id="@+id/from_fragment_participantes_online_to_fragment_resultado_online"
             app:destination="@id/fragment_resultado_online" />
+        <argument
+            android:name="tipo_sorteio"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/from_fragment_participantes_online_to_fragment_resultado_presencial"
+            app:destination="@id/fragment_resultado_presencial" />
     </fragment>
     <fragment
         android:id="@+id/fragment_resultado_online"
@@ -84,11 +90,22 @@
         <action
             android:id="@+id/from_fragment_historico_to_fragment_resultado_online"
             app:destination="@id/fragment_resultado_online" />
+        <action
+            android:id="@+id/action_fragment_historico_to_fragment_resultado_presencial"
+            app:destination="@id/fragment_resultado_presencial"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
-        android:id="@+id/fragment_participantes_presencial"
-        android:name="com.app.amigosecreto.fragment_participantes_presencial"
-        android:label="fragment_participantes_presencial"
-        tools:layout="@layout/fragment_participantes_presencial" />
+        android:id="@+id/fragment_resultado_presencial"
+        android:name="com.app.amigosecreto.fragment_resultado_presencial"
+        android:label="fragment_resultado_presencial"
+        tools:layout="@layout/fragment_resultado_presencial" >
+        <action
+            android:id="@+id/from_fragment_resultado_presencial_to_fragment_revela"
+            app:destination="@id/fragment_revela_main"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
 
 </navigation>

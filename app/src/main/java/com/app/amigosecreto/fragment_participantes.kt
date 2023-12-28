@@ -6,20 +6,25 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class frament_participantes_online : Fragment(R.layout.fragment_frament_participantes_online) {
+class fragment_participantes : Fragment(R.layout.fragment_participantes) {
 
     private lateinit var sharedViewModel: SharedViewModel
     private lateinit var containerParticipantes : LinearLayout
     private lateinit var btn_adicionarParticipante: Button
     private lateinit var btn_realizarSorteio: Button
     private lateinit var txt_nome_sorteio: EditText
+    private lateinit var txt_titulo: TextView
     private var participantesList = mutableListOf<participante>()
+    private val args: fragment_participantesArgs by navArgs()
+    private var tipoSorteio: String = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,11 +33,23 @@ class frament_participantes_online : Fragment(R.layout.fragment_frament_particip
         btn_adicionarParticipante = view.findViewById(R.id.btn_adicionar_participante)
         btn_realizarSorteio = view.findViewById(R.id.btn_realizar_sorteio)
         txt_nome_sorteio = view.findViewById(R.id.txt_nome_sorteio)
-
+        txt_titulo = view.findViewById(R.id.txt_titulo_participantes_tipo_sorteio)
+        val _tiposorteio = args.tipoSorteio
+        verificaTipoSorteio(_tiposorteio)
         repeat(4) {
             adicionarParticipante()
         }
         setListener()
+    }
+
+    private fun verificaTipoSorteio(_tiposorteio: Boolean) {
+        if(_tiposorteio == false){
+            tipoSorteio = getString(R.string.btn_sorteio_prencial)
+        }
+        else{
+            tipoSorteio = getString(R.string.btn_sorteio_online)
+        }
+        txt_titulo.text = tipoSorteio
     }
 
     private fun setListener() {
@@ -51,7 +68,12 @@ class frament_participantes_online : Fragment(R.layout.fragment_frament_particip
                         sharedViewModel.listaParticipantes.clear()
                         sharedViewModel.listaParticipantes.addAll(participantesList)
                         adicionaSorteioHistorico(participantesList)
-                        findNavController().navigate(R.id.from_fragment_participantes_online_to_fragment_resultado_online)
+                        if(tipoSorteio == getString(R.string.btn_sorteio_online)){
+                            findNavController().navigate(R.id.from_fragment_participantes_online_to_fragment_resultado_online)
+                        }else if(tipoSorteio == getString(R.string.btn_sorteio_prencial)){
+                            findNavController().navigate(R.id.from_fragment_participantes_online_to_fragment_resultado_presencial)
+                        }
+
                     } else {
                         sharedViewModel.exibirAlertDialog(requireContext(),"É necessário que haja um número par de participantes para que todos possam participar.")
                     }
@@ -134,7 +156,7 @@ class frament_participantes_online : Fragment(R.layout.fragment_frament_particip
             txt_nome_sorteio.text.toString(),
             sharedViewModel.listaParticipantes.size,
             LocalDateTime.parse(dataEHoraAtualString, formato),
-            getString(R.string.btn_sorteio_online)
+            tipoSorteio
         )
         sorteioAtual.participantes.addAll(participantes)
         sharedViewModel.listaHistorico.add(sorteioAtual)

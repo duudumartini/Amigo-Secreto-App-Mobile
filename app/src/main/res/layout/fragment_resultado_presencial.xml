@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment_resultado_presencial"
+    android:background="@color/cor1">
+
+    <LinearLayout
+        android:id="@+id/container_geral"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/txt_lista_participantes"
+            android:textColor="@color/cor6"
+            android:textSize="40sp"
+            android:padding="10dp"
+            android:fontFamily="@font/lobster_regular"
+            android:background="@drawable/bk2_round"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="Lista de resultado"> <!-- Add content description for accessibility -->
+            <LinearLayout
+                android:id="@+id/container_resultado_presencial"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:contentDescription="Bloco de participantes"> <!-- Add content description for accessibility -->
+
+                <!-- Lista de participantes aparece aqui, ao clicar no botão, instanciando linha_participante.xml -->
+            </LinearLayout>
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/btn_home"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_home" />
+    </LinearLayout>
+</FrameLayout>

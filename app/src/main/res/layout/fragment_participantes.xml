@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".frament_participantes_online"
+    tools:context=".fragment_participantes"
     android:background="@color/cor1">
 
     <LinearLayout
@@ -20,6 +20,7 @@
             android:background="@drawable/bk2_round">
 
             <TextView
+                android:id="@+id/txt_titulo_participantes_tipo_sorteio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
