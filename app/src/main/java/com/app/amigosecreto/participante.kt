@@ -5,4 +5,5 @@ class participante {
     var amigoSecreto: String = ""
     var revelado: Boolean = false
     var escolhido: Boolean = false
+    var embaralhado: Boolean = false
 }
