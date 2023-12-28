@@ -20,6 +20,11 @@
             app:destination="@id/fragment_revela_main"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/from_fragment_main_to_fragment_historico"
+            app:destination="@id/fragment_historico"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
 
     <fragment
@@ -32,6 +37,9 @@
             app:destination="@id/fragment_participantes_online"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_fragment_sorteio_main_to_fragment_participantes_presencial"
+            app:destination="@id/fragment_participantes_presencial" />
     </fragment>
 
     <fragment
@@ -63,8 +71,24 @@
         android:label="fragment_resultado_online"
         tools:layout="@layout/fragment_resultado_online" >
         <action
-            android:id="@+id/action_fragment_resultado_online_to_fragment_main"
-            app:destination="@id/fragment_main" />
+            android:id="@+id/from_fragment_resultado_online_to_fragment_main"
+            app:destination="@id/fragment_main"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
+    <fragment
+        android:id="@+id/fragment_historico"
+        android:name="com.app.amigosecreto.fragment_historico"
+        android:label="fragment_historico"
+        tools:layout="@layout/fragment_historico" >
+        <action
+            android:id="@+id/from_fragment_historico_to_fragment_resultado_online"
+            app:destination="@id/fragment_resultado_online" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_participantes_presencial"
+        android:name="com.app.amigosecreto.fragment_participantes_presencial"
+        android:label="fragment_participantes_presencial"
+        tools:layout="@layout/fragment_participantes_presencial" />
 
 </navigation>

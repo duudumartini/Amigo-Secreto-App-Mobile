@@ -33,19 +33,41 @@
             android:layout_weight="1"
             android:gravity="center">
 
-            <android.widget.Button
-                android:id="@+id/btn_realizar_sorteio"
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:layout_marginRight="70dp"
-                android:textAlignment="center"
-                android:padding="15dp"
-                android:layout_height="wrap_content"
-                android:background = "@drawable/bk3_round"
-                android:textColor="@color/cor6"
-                android:textSize="60sp"
-                android:fontFamily="@font/lobster_regular"
-                android:text="@string/btn_criar_sorteio" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <android.widget.Button
+                    android:id="@+id/btn_realizar_sorteio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginRight="70dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bk4_round"
+                    android:fontFamily="@font/lobster_regular"
+                    android:padding="15dp"
+                    android:text="@string/btn_criar_sorteio"
+                    android:textAlignment="center"
+                    android:textColor="@color/cor6"
+                    android:textSize="60sp" />
+
+                <android.widget.Button
+                    android:id="@+id/btn_historico"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginRight="70dp"
+                    android:background="@drawable/bk3_round"
+                    android:fontFamily="@font/lobster_regular"
+                    android:padding="15dp"
+                    android:text="@string/btn_historico"
+                    android:textAlignment="center"
+                    android:textColor="@color/cor6"
+                    android:textSize="35sp" />
+            </LinearLayout>
 
         </TableRow>
 

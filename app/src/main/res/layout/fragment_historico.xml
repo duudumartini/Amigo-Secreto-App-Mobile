@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment_historico"
+    android:background="@color/cor1">
+
+    <LinearLayout
+        android:id="@+id/container_geral"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bk2_round">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/lobster_regular"
+            android:gravity="center"
+            android:text="@string/txt_historico"
+            android:textColor="@color/cor6"
+            android:textSize="40sp" />
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="Lista de historico"> <!-- Add content description for accessibility -->
+            <LinearLayout
+                android:id="@+id/container_historico_sorteios"
+                android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:contentDescription="Bloco de historico de sorteios"> <!-- Add content description for accessibility -->
+
+                <!-- Lista de historico de sorteio aparece aqui -->
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btn_limpar_historico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:fontFamily="@font/lobster_regular"
+            android:textColor="@color/white"
+            android:text="@string/btn_limpar_historico"
+            android:backgroundTint="@color/cor2"/>
+    </LinearLayout>
+</FrameLayout>

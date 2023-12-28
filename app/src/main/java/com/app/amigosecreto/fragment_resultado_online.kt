@@ -9,25 +9,32 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 
 
 class fragment_resultado_online : Fragment(R.layout.fragment_resultado_online) {
     private lateinit var sharedViewModel: SharedViewModel
     private var participantesList = mutableListOf<participante>()
     private lateinit var containerParticipantes : LinearLayout
+    private lateinit var btn_home: ImageView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         participantesList.addAll(sharedViewModel.listaParticipantes)
         containerParticipantes = view.findViewById(R.id.container_resultado_online)
+        btn_home = view.findViewById(R.id.btn_home)
 
         criaTabelaParticipantes()
+        btn_home.setOnClickListener{
+            findNavController().navigate(R.id.from_fragment_resultado_online_to_fragment_main)
+        }
     }
 
     private fun criaTabelaParticipantes() {

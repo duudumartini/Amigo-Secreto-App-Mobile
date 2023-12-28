@@ -15,6 +15,7 @@ class fragment_main : Fragment(R.layout.fragment_main) {
     private lateinit var sharedViewModel: SharedViewModel
     private lateinit var btn_realiza_sorteio: Button
     private lateinit var btn_revelar: Button
+    private lateinit var btn_historico: Button
     private lateinit var txt_codigo: EditText
     private lateinit var codigo: String
 
@@ -24,6 +25,7 @@ class fragment_main : Fragment(R.layout.fragment_main) {
         sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         btn_realiza_sorteio = view.findViewById(R.id.btn_realizar_sorteio)
         btn_revelar = view.findViewById(R.id.btn_revelar)
+        btn_historico = view.findViewById(R.id.btn_historico)
         txt_codigo = view.findViewById(R.id.txt_codigo)
 
         setListeners()
@@ -45,6 +47,10 @@ class fragment_main : Fragment(R.layout.fragment_main) {
             } catch (e: Exception) {
                 sharedViewModel.exibirAlertDialog(requireContext(), getString(R.string.txt_codigo_valido))
             }
+        }
+
+        btn_historico.setOnClickListener {
+            findNavController().navigate(R.id.from_fragment_main_to_fragment_historico)
         }
 
         txt_codigo.setOnFocusChangeListener { _, hasFocus ->

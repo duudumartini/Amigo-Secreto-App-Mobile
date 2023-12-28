@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Amigo Secreto</string>
     <string name="btn_criar_sorteio">Novo Sorteio</string>
+    <string name="btn_historico">Historico de sorteios</string>
     <string name="txt_codigo">Insira aqui seu código</string>
     <string name="btn_codigo">Revelar Amigo Secreto</string>
     <string name="btn_sorteio_prencial">Sorteio Presencial</string>
@@ -13,6 +14,7 @@
     <string name="txt_codigo_valido">Por favor, insira um código válido.</string>
     <string name="txt_memorizei">Memorizei !</string>
     <string name="txt_seu_amigo_secreto_e">Seu amigo secreto é:</string>
-
-
+    <string name="txt_nome_sorteio">Insira o nome do sorteio:</string>
+    <string name="txt_historico">Historico de Sorteios</string>
+    <string name="btn_limpar_historico">Limpar Histórico</string>
 </resources>

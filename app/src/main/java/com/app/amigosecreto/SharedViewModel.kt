@@ -1,22 +1,25 @@
 package com.app.amigosecreto
 
 import android.app.AlertDialog
+import android.app.Application
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.util.Base64
 
 class SharedViewModel: ViewModel() {
-    public val listaParticipantes: MutableList<participante> = mutableListOf()
+    val listaParticipantes: MutableList<participante> = mutableListOf()
+    var listaHistorico: MutableList<sorteio> = mutableListOf()
 
     fun criptografar(texto: String): String {
         val chave = "00101010"
         val chaveInt = Integer.parseInt(chave, 2)
         val textoParaCriptografar = "ENCRYPTED:$texto"
-
         val bytes = textoParaCriptografar.toByteArray()
         val bytesCriptografados = bytes.map { (it + chaveInt).toByte() }.toByteArray()
 
@@ -35,9 +38,7 @@ class SharedViewModel: ViewModel() {
     fun isTextoCriptografado(texto: String): Boolean {
         return texto.startsWith("ENCRYPTED:")
     }
-
-
-    public fun exibirAlertDialog(context: Context, mensagem: String) {
+    fun exibirAlertDialog(context: Context, mensagem: String) {
         val alertDialogBuilder = AlertDialog.Builder(context)
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.alert_dialog, null)

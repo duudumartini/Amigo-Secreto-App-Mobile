@@ -1,8 +1,6 @@
 package com.app.amigosecreto
 
-import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -11,6 +9,8 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class frament_participantes_online : Fragment(R.layout.fragment_frament_participantes_online) {
 
@@ -18,6 +18,7 @@ class frament_participantes_online : Fragment(R.layout.fragment_frament_particip
     private lateinit var containerParticipantes : LinearLayout
     private lateinit var btn_adicionarParticipante: Button
     private lateinit var btn_realizarSorteio: Button
+    private lateinit var txt_nome_sorteio: EditText
     private var participantesList = mutableListOf<participante>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,12 +27,11 @@ class frament_participantes_online : Fragment(R.layout.fragment_frament_particip
         containerParticipantes = view.findViewById(R.id.container_participantes)
         btn_adicionarParticipante = view.findViewById(R.id.btn_adicionar_participante)
         btn_realizarSorteio = view.findViewById(R.id.btn_realizar_sorteio)
+        txt_nome_sorteio = view.findViewById(R.id.txt_nome_sorteio)
 
         repeat(4) {
             adicionarParticipante()
         }
-
-
         setListener()
     }
 
@@ -44,19 +44,35 @@ class frament_participantes_online : Fragment(R.layout.fragment_frament_particip
             participantesList.clear()
             participantesList.addAll(criarListaDeParticipantes())
 
-            if (participantesList.size >= 2) {
+            if(txt_nome_sorteio.text.toString() != getString(R.string.txt_nome_sorteio)){
+                if (participantesList.size >= 2) {
 
-                if (participantesList.size % 2 == 0) {
-                    sharedViewModel.listaParticipantes.clear()
-                    sharedViewModel.listaParticipantes.addAll(participantesList)
-                    findNavController().navigate(R.id.from_fragment_participantes_online_to_fragment_resultado_online)
+                    if (participantesList.size % 2 == 0) {
+                        sharedViewModel.listaParticipantes.clear()
+                        sharedViewModel.listaParticipantes.addAll(participantesList)
+                        adicionaSorteioHistorico(participantesList)
+                        findNavController().navigate(R.id.from_fragment_participantes_online_to_fragment_resultado_online)
+                    } else {
+                        sharedViewModel.exibirAlertDialog(requireContext(),"É necessário que haja um número par de participantes para que todos possam participar.")
+                    }
                 } else {
-                    sharedViewModel.exibirAlertDialog(requireContext(),"É necessário que haja um número par de participantes para que todos possam participar.")
+                    sharedViewModel.exibirAlertDialog(requireContext(),"É necessário contar com dois ou mais participantes para realizar o sorteio.")
                 }
-            } else {
-                sharedViewModel.exibirAlertDialog(requireContext(),"É necessário contar com dois ou mais participantes para realizar o sorteio.")
+            }
+            else{
+                sharedViewModel.exibirAlertDialog(requireContext(),"Insira o nome do sorteio.")
             }
         }
+
+        txt_nome_sorteio.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus && txt_nome_sorteio.text.toString() == getString(R.string.txt_nome_sorteio)) {
+                txt_nome_sorteio.setText("")
+            }
+            if (!hasFocus && txt_nome_sorteio.text.isBlank()) {
+                txt_nome_sorteio.setText(getString(R.string.txt_nome_sorteio))
+            }
+        }
+
     }
 
 
@@ -111,4 +127,16 @@ class frament_participantes_online : Fragment(R.layout.fragment_frament_particip
         return listaParticipantes
     }
 
+    private fun adicionaSorteioHistorico(participantes: MutableList<participante>){
+        val formato = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")
+        val dataEHoraAtualString = LocalDateTime.now().format(formato)
+        val sorteioAtual = sorteio(
+            txt_nome_sorteio.text.toString(),
+            sharedViewModel.listaParticipantes.size,
+            LocalDateTime.parse(dataEHoraAtualString, formato),
+            getString(R.string.btn_sorteio_online)
+        )
+        sorteioAtual.participantes.addAll(participantes)
+        sharedViewModel.listaHistorico.add(sorteioAtual)
+    }
 }

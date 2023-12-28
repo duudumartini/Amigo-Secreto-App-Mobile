@@ -1,0 +1,81 @@
+<!-- linha_participante.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linha_participante"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/btn_ver_sorteio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@drawable/bk3_round"
+        android:gravity="center_vertical|center_horizontal">
+
+        <TextView
+            android:id="@+id/txt_nome_sorteio_historico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:fontFamily="@font/lobster_regular"
+            android:inputType="text"
+            android:padding="15dp"
+            android:text="Sorteio natal"
+            android:textAlignment="center"
+            android:textColor="@color/cor6"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txt_tipo_sorteio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:fontFamily="@font/lobster_regular"
+            android:inputType="text"
+            android:padding="0dp"
+            android:text="Online"
+            android:textAlignment="center"
+            android:textColor="@color/cor6"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_data_historico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:fontFamily="@font/lobster_regular"
+                android:inputType="text"
+                android:layout_margin="10dp"
+                android:text="27/12/204 - 20:37:55"
+                android:textAlignment="center"
+                android:textColor="@color/cor6"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/txt_qtd_participante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:fontFamily="@font/lobster_regular"
+                android:inputType="text"
+                android:layout_margin="10dp"
+                android:text="8 participantes"
+                android:textAlignment="center"
+                android:textColor="@color/cor6"
+                android:textSize="18sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

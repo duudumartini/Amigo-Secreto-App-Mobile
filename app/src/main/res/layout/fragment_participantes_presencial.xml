@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".frament_participantes_online"
+    tools:context=".fragment_participantes_presencial"
     android:background="@color/cor1">
 
     <LinearLayout
@@ -25,12 +25,12 @@
                 android:layout_margin="10dp"
                 android:fontFamily="@font/lobster_regular"
                 android:gravity="center"
-                android:text="@string/btn_sorteio_online"
+                android:text="@string/btn_sorteio_prencial"
                 android:textColor="@color/cor6"
                 android:textSize="40sp" />
 
             <EditText
-                android:id="@+id/txt_nome_sorteio"
+                android:id="@+id/txt_nome_sorteio_presencial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -65,7 +65,7 @@
             android:layout_weight="1"
             android:contentDescription="List de participantes"> <!-- Add content description for accessibility -->
             <LinearLayout
-                android:id="@+id/container_participantes"
+                android:id="@+id/container_participantes_presencial"
                 android:layout_width="300dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
@@ -86,6 +86,4 @@
             android:textSize="30dp"
             android:text="@string/btn_realizar_sorteio" />
     </LinearLayout>
-
-
 </RelativeLayout>
