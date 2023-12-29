@@ -26,25 +26,31 @@
             android:id="@+id/btn_nao"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
             android:textColor="@color/cor6"
             android:backgroundTint="@color/cor3"
             android:fontFamily="@font/lobster_regular"
             android:text="NÃO"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/btn_sim"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:textColor="@color/cor5"
-            android:backgroundTint="@color/cor6"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/cor6"
+            android:backgroundTint="@color/cor3"
             android:fontFamily="@font/lobster_regular"
             android:text="SIM"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="24sp" />
     </LinearLayout>
 
 </LinearLayout>

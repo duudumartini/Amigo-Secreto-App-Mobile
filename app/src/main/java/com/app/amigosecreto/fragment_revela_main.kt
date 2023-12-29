@@ -12,10 +12,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.KeyEventDispatcher.dispatchKeyEvent
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 
 class fragment_revela_main : Fragment(R.layout.fragment_revela_main) {
-
+    private lateinit var sharedViewModel: SharedViewModel
     private var codigo: String? = null
     private var tipoSorteio: String? = null
     private var participante: String? = null
@@ -25,6 +26,7 @@ class fragment_revela_main : Fragment(R.layout.fragment_revela_main) {
     private lateinit var btn_sim: Button
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         txt_nome_participante = view.findViewById(R.id.txt_nome_revela)
         btn_nao = view.findViewById(R.id.btn_nao_revela)
         btn_sim = view.findViewById(R.id.btn_sim_revela)
@@ -40,6 +42,7 @@ class fragment_revela_main : Fragment(R.layout.fragment_revela_main) {
     private fun setListener() {
         btn_sim.setOnClickListener {
             exibirAmigoSecreto(amigoSecreto.toString())
+            sharedViewModel.tocarSomCongrats(requireContext())
         }
         btn_nao.setOnClickListener {
             if(tipoSorteio == ""){

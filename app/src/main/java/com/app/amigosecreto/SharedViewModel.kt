@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothDevice
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
+import android.media.MediaPlayer
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
@@ -96,6 +97,16 @@ class SharedViewModel: ViewModel() {
         val json = mPrefs.getString("HISTORICO", "")
         val type = object : TypeToken<List<sorteio>?>() {}.type
         listaHistorico = (gson.fromJson<List<sorteio>>(json, type) ?: mutableListOf()).toMutableList()
+    }
+
+    fun tocarSomCongrats(context: Context) {
+        val mediaPlayer = MediaPlayer.create(context, R.raw.congrats)
+
+        mediaPlayer.setOnCompletionListener { mp ->
+            mp.release()
+        }
+
+        mediaPlayer.start()
     }
 
 }
