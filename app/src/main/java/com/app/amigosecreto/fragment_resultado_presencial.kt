@@ -16,7 +16,6 @@ class fragment_resultado_presencial : Fragment(R.layout.fragment_resultado_prese
     private var participantesList = mutableListOf<participante>()
     private lateinit var containerParticipantes : LinearLayout
     private lateinit var btn_home: ImageView
-    private var jaEmbaralhou: Boolean = false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -27,6 +26,10 @@ class fragment_resultado_presencial : Fragment(R.layout.fragment_resultado_prese
         btn_home = view.findViewById(R.id.btn_home)
 
         inflarLinhasParticipantes()
+
+        btn_home.setOnClickListener{
+            findNavController().navigate(R.id.from_fragment_resultado_presencial_to_fragment_main)
+        }
     }
     private fun inflarLinhasParticipantes() {
         participantesList.forEach { participante ->
@@ -63,5 +66,6 @@ class fragment_resultado_presencial : Fragment(R.layout.fragment_resultado_prese
             }
             containerParticipantes.addView(linhaParticipanteView)
         }
+        sharedViewModel.salvarListaHistoricoNoArquivo(requireContext())
     }
 }

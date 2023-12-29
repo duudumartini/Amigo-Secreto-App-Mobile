@@ -2,12 +2,8 @@ package com.app.amigosecreto
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
@@ -26,36 +22,52 @@ class fragment_historico : Fragment(R.layout.fragment_historico) {
         atualizaHistorico()
 
         btn_limparHistorico.setOnClickListener {
-            sharedViewModel.listaHistorico.clear()
-            atualizaHistorico()
-            containerHistorico.removeAllViews()
+            sharedViewModel.exibirAlertDialogSimNao(requireContext(),"Deseja apagar o histórico de sorteios?\n\nEsta ação é irreversível!"){resposta ->
+                if(resposta){
+                    sharedViewModel.listaHistorico.clear()
+                    sharedViewModel.salvarListaHistoricoNoArquivo(requireContext())
+                    atualizaHistorico()
+                    containerHistorico.removeAllViews()
+                }
+            }
         }
     }
 
-    fun atualizaHistorico(){
+    fun atualizaHistorico() {
+        sharedViewModel.carregarListaHistoricoDoArquivo(requireContext())
         for (historicoItem in sharedViewModel.listaHistorico) {
             val linhaSorteioHistorico: View = layoutInflater.inflate(R.layout.linha_sorteio_historico, null)
-            val btn_verSorteio: LinearLayout = linhaSorteioHistorico.findViewById(R.id.btn_ver_sorteio)
+            val btn_verSorteio: LinearLayout = linhaSorteioHistorico.findViewById(R.id.linha_participante)
             val txt_nomeSorteio: TextView = linhaSorteioHistorico.findViewById(R.id.txt_nome_sorteio_historico)
             val txt_data: TextView = linhaSorteioHistorico.findViewById(R.id.txt_data_historico)
             val txt_qtdParticipantes: TextView = linhaSorteioHistorico.findViewById(R.id.txt_qtd_participante)
             val txt_tipoSorteio: TextView = linhaSorteioHistorico.findViewById(R.id.txt_tipo_sorteio)
-            val formato = DateTimeFormatter.ofPattern("dd-MM-yyyy - HH:mm:ss")
-            val dataFormatada = historicoItem.data.format(formato)
 
             txt_nomeSorteio.text = historicoItem.nomeSorteio
             txt_qtdParticipantes.text = "${historicoItem.qtdParticipantes} Participantes"
-            txt_data.text = dataFormatada
+            txt_data.text = historicoItem.dataHora
             txt_tipoSorteio.text = historicoItem.tipoSorteio
 
-            btn_verSorteio.setOnClickListener{
+            val navigateToResultadoOnline = { _: View ->
+                sharedViewModel.listaParticipantes.clear()
+                sharedViewModel.listaParticipantes.addAll(historicoItem.participantes)
                 if(historicoItem.tipoSorteio == getString(R.string.btn_sorteio_online)){
-                    sharedViewModel.listaParticipantes.clear()
-                    sharedViewModel.listaParticipantes.addAll(historicoItem.participantes)
                     findNavController().navigate(R.id.from_fragment_historico_to_fragment_resultado_online)
                 }
+                else{
+                    findNavController().navigate(R.id.from_fragment_historico_to_fragment_resultado_presencial)
+                }
             }
+
+            btn_verSorteio.setOnClickListener(navigateToResultadoOnline)
+            txt_data.setOnClickListener(navigateToResultadoOnline)
+            txt_nomeSorteio.setOnClickListener(navigateToResultadoOnline)
+            txt_tipoSorteio.setOnClickListener(navigateToResultadoOnline)
+            txt_qtdParticipantes.setOnClickListener(navigateToResultadoOnline)
+
             containerHistorico.addView(linhaSorteioHistorico)
         }
     }
+
+
 }

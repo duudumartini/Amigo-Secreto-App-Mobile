@@ -1,14 +1,14 @@
 package com.app.amigosecreto
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
+import android.content.ClipboardManager
 import android.widget.EditText
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import kotlin.math.log
 
 class fragment_main : Fragment(R.layout.fragment_main) {
 
@@ -38,7 +38,7 @@ class fragment_main : Fragment(R.layout.fragment_main) {
         btn_revelar.setOnClickListener {
             try {
                 codigo = sharedViewModel.descriptografar(txt_codigo.text.toString())
-                if(sharedViewModel.isTextoCriptografado(codigo) == true) {
+                if(sharedViewModel.isTextoCriptografado(codigo)) {
                     val action = fragment_mainDirections.fromFragmentMainToFragmentRevelaMain(codigo,"")
                     findNavController().navigate(action)
                 } else {

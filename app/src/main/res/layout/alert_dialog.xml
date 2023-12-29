@@ -23,6 +23,7 @@
         android:layout_margin="20dp"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textColor="@color/cor6"
         android:fontFamily="@font/lobster_regular"
         android:backgroundTint="@color/cor3"
         android:layout_width="match_parent"

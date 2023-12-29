@@ -37,10 +37,8 @@ class fragment_resultado_online : Fragment(R.layout.fragment_resultado_online) {
         }
     }
 
-    private fun criaTabelaParticipantes() {
-        // Criar uma lista embaralhada dos índices dos participantes
-        val indicesEmbaralhados = participantesList.indices.shuffled()
 
+    private fun criaTabelaParticipantes() {
         participantesList.forEachIndexed { index, participante ->
             val linhaParticipanteView: View = layoutInflater.inflate(R.layout.linha_resultado_online, null)
             val btnCopiarCodigo: ImageButton = linhaParticipanteView.findViewById(R.id.btn_copiar_codigo)
@@ -48,15 +46,18 @@ class fragment_resultado_online : Fragment(R.layout.fragment_resultado_online) {
             val txtParticipante: TextView = linhaParticipanteView.findViewById(R.id.txt_participante)
             txtParticipante.text = participante.nomeParticipante
 
-            // Obter o índice embaralhado correspondente
-            val amigoSecretoIndex = indicesEmbaralhados[index]
-
-            // Encontrar um amigo secreto não escolhido para o participante
-            val amigoSecreto = participantesList[amigoSecretoIndex]
-
-            // Atribuir e marcar como escolhido
-            participante.amigoSecreto = amigoSecreto.nomeParticipante
-            amigoSecreto.escolhido = true
+            if (participante.embaralhado == false){
+                var listaDeAmigosSecretos = mutableListOf<participante>()
+                listaDeAmigosSecretos.addAll(participantesList.shuffled())
+                for(amigo in listaDeAmigosSecretos){
+                    if(amigo.nomeParticipante != participante.nomeParticipante && amigo.escolhido != true){
+                        participante.amigoSecreto = amigo.nomeParticipante
+                        amigo.escolhido = true
+                        participante.embaralhado = true
+                        break
+                    }
+                }
+            }
 
             btnCopiarCodigo.setOnClickListener{
                 val stringAmigoSecreto = "${participante.nomeParticipante}/${participante.amigoSecreto}"
@@ -81,8 +82,6 @@ class fragment_resultado_online : Fragment(R.layout.fragment_resultado_online) {
             }
             containerParticipantes.addView(linhaParticipanteView)
         }
-
-
+        sharedViewModel.salvarListaHistoricoNoArquivo(requireContext())
     }
-    
 }
