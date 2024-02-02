@@ -5,7 +5,7 @@ O Amigo Secreto está disponível gratuitamente na App Store e Google Play. Baix
 
 ---
 
-**[Link para Download]([#](https://play.google.com/store/apps/details?id=com.app.amigosecreto))**
+**Link para Download: https://play.google.com/store/apps/details?id=com.app.amigosecreto**
 
 ---
 
